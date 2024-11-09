@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="imagetoolbar" content="no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="title" content="웹사이트" />
+    <meta name="description" content="웹사이트입니다." />
+    <meta name="keywords" content="키워드,키워드,키워드" />
+    <meta property="og:title" content="웹사이트" />
+    <meta property="og:description" content="웹사이트입니다" />
+    <meta property="og:image" content="https://웹사이트/images/opengraph.png" />
+    <meta property="og:url" content="https://웹사이트" />
+    <title>첫페이지 | 프로젝트4928</title>
+    <link rel="stylesheet" href="../resources/css/setting.css" />
+    <link rel="stylesheet" href="../resources/css/plugin.css" />
+    <link rel="stylesheet" href="../resources/css/template.css" />
+    <link rel="stylesheet" href="../resources/css/common.css" />
+    <link rel="stylesheet" href="../resources/css/style.css" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <!-- [S]basic-N1 -->
+    <header class="basic-N1" data-bid="ZxM38SLaO3">
+      <div class="header-inner">
+        <div class="header-container container-lg">
+          <h1 class="header-title">
+            <a href="../index.html">
+              <img src="../resources/images/logo2.png" alt="로고" />
+            </a>
+          </h1>
+          <div class="header-center">
+            <div class="header-title header-mobile-top">
+              <a href="javascript:void(0)">
+                <img src="../resources/images/img_logo_black.png" alt="로고" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="header-dim"></div>
+    </header>
+    <!-- [E]basic-N1 -->
+    <main class="th-layout-main">
+      <!-- [S]basic-N55 -->
+      <!-- <div class="basic-N55" data-bid="Hum38slAy4">
+        <div class="contents-inner">
+          <div class="contents-container container-md">
+            <div class="tabset tabset-solid border-bottom">
+              <ul class="tabset-list tabset-sm">
+                <li class="tabset-item">
+                  <a class="tabset-link active" href="javascript:void(0)">
+                    <span>공지사항</span>
+                  </a>
+                </li>
+                <li class="tabset-item">
+                  <a class="tabset-link" href="javascript:void(0)">
+                    <span>오시는 길</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div> -->
+      <!-- [E]basic-N55 -->
+      <!-- [S]basic-N22 -->
+
+      <div class="basic-N22" data-bid="VGM38slb1o">
+        <div class="contents-inner">
+          <div class="contents-container container-md">
+            <div class="textset" style="text-align: center">
+              <h2 class="textset-tit">공지사항</h2>
+            </div>
+
+            <!-- 검색기능 -->
+            <!-- <div class="contents-form">
+              <div class="inputset inputset-lg">
+                <button
+                  class="inputset-icon icon-right icon-search btn"
+                  type="button"
+                  aria-label="아이콘"
+                ></button>
+                <input
+                  type="text"
+                  id="search-input"
+                  class="inputset-input form-control"
+                  placeholder="검색어를 입력해주세요."
+                  aria-label="내용"
+                />
+              </div>
+            </div> -->
+
+            <!-- 공지사항 리스트 -->
+            <div id="notice-list" class="contents-group">
+              <!-- 공지사항 항목들 -->
+            </div>
+
+            <!-- 페이지네이션 -->
+            <nav id="pagination" class="pagiset pagiset-line">
+              <div class="pagiset-ctrl">
+                <a
+                  class="pagiset-link pagiset-first"
+                  href="javascript:void(0)"
+                  onclick="changePage(1)"
+                >
+                  <span class="visually-hidden">처음</span>
+                </a>
+              </div>
+              <div class="pagiset-ctrl">
+                <a
+                  class="pagiset-link pagiset-prev"
+                  href="javascript:void(0)"
+                  onclick="changePage(currentPage - 1)"
+                >
+                  <span class="visually-hidden">이전</span>
+                </a>
+              </div>
+              <div class="pagiset-list" id="page-numbers"></div>
+              <div class="pagiset-ctrl">
+                <a
+                  class="pagiset-link pagiset-next"
+                  href="javascript:void(0)"
+                  onclick="changePage(currentPage + 1)"
+                >
+                  <span class="visually-hidden">다음</span>
+                </a>
+              </div>
+              <div class="pagiset-ctrl">
+                <a
+                  class="pagiset-link pagiset-last"
+                  href="javascript:void(0)"
+                  onclick="changePage(totalPages)"
+                >
+                  <span class="visually-hidden">마지막</span>
+                </a>
+              </div>
+            </nav>
+          </div>
+        </div>
+      </div>
+      <!-- [E]basic-N22 -->
+
+      <div id="popupWrapper" class="popup-wrapper">
+        <div class="popup-dim" onclick="closeModal()"></div>
+        <div class="popup">
+          <div class="popup-inner">
+            <div class="popup-title">
+              <div class="title-wrap">
+                <h6 id="popupTitle" class="title">Title</h6>
+                <button
+                  class="btn close"
+                  onclick="closeModal()"
+                  id="closeButton"
+                >
+                  <i
+                    class="material-icons"
+                    style="position: absolute; top: 20px"
+                    >X</i
+                  >
+                </button>
+              </div>
+            </div>
+            <div class="popup-contents" id="popupContents">
+              <!-- 내용이 여기에 동적으로 표시됩니다 -->
+            </div>
+            <p id="popupSubTitle" class="sub-title b6">Sub Title</p>
+          </div>
+        </div>
+      </div>
+    </main>
+    <!-- footer -->
+    <footer class="basic-N4" data-bid="Esm37634Et">
+      <div class="footer-inner">
+        <div class="footer-container container-lg">
+          <div class="footer-top">
+            <h1 class="footer-logo">
+              <a href="javascript:void(0)">
+                <img src="../resources/images/logo_white.png" alt="로고" />
+              </a>
+            </h1>
+            <ul class="footer-menulist">
+              <li class="footer-menuitem">
+                <a href="javascript:void(0)">
+                  <span>이용약관</span>
+                </a>
+              </li>
+              <li class="footer-menuitem">
+                <a href="javascript:void(0)">
+                  <span>개인정보처리방침</span>
+                </a>
+              </li>
+              <li class="footer-menuitem">
+                <a href="javascript:void(0)">
+                  <span>푸터메뉴1</span>
+                </a>
+              </li>
+              <li class="footer-menuitem">
+                <a href="javascript:void(0)">
+                  <span>푸터메뉴2</span>
+                </a>
+              </li>
+            </ul>
+            <ul class="footer-snslist">
+              <li class="footer-snsitem">
+                <a
+                  class="footer-snslink"
+                  href="https://www.instagram.com/mongle_puppyschool/"
+                  target="_blank"
+                >
+                  <img
+                    src="../resources/icons/ico_instagram_lightgrey.svg"
+                    alt="인스타그램"
+                  />
+                </a>
+              </li>
+              <li class="footer-snsitem">
+                <a
+                  class="footer-snslink"
+                  href="https://www.youtube.com/watch?v=sXIYp3Hv8LI"
+                  target="_blank"
+                >
+                  <img
+                    src="../resources/icons/ico_youtube_lightgrey.svg"
+                    alt="유튜브"
+                  />
+                </a>
+              </li>
+              <li class="footer-snsitem">
+                <a
+                  class="footer-snslink"
+                  href="https://blog.naver.com/konderias"
+                  target="_blank"
+                >
+                  <img src="../resources/icons/naver.png" alt="네이버" />
+                </a>
+              </li>
+              <li class="footer-snsitem">
+                <a class="footer-snslink" href="javascript:void(0)">
+                  <img
+                    src="../resources/icons/ico_kakao_lightgrey.svg"
+                    alt="카카오톡"
+                  />
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="footer-bottom">
+            <div class="footer-txt">
+              <p>경기 안산시 상록구 각골로 41 2층 몽글몽글 애견유치원</p>
+              <p>
+                <span>T. 0507-1413-1705</span>
+                <span>E. help@openfield.co.kr</span>
+              </p>
+            </div>
+            <div class="footer-txt">
+              <p>2024 BY NANA. ALL RIGHTS RESEVED</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script>
+      // 공지사항 데이터 (예시)
+      const notices = [
+        {
+          title: "몽글몽글 애견유치원 홈페이지가 오픈 하였습니다.",
+          content:
+            "안녕하세요. 드디어 몽글몽글 홈페이지가 공식 오픈하게 되었습니다. 🎉 저희는 고객 여러분에게 더욱 편리하고 유익한 서비스를 제공하기 위해 열심히 준비한 다양한 콘텐츠와 기능들을 선보이게 되어 매우 기쁩니다. 몽글몽글은 사용자 여러분의 기대에 부응할 수 있도록, 최신 정보와 유용한 자료를 지속적으로 업데이트하고 있습니다. 또한, 더욱 직관적이고 세련된 디자인을 통해 편안하고 즐거운 웹 경험을 선사할 수 있도록 노력하고 있습니다. 여러분의 소중한 의견과 피드백은 저희에게 큰 힘이 됩니다. 앞으로도 많은 관심과 사랑 부탁드리며, 자주 방문해 주셔서 다양한 서비스를 이용해 보세요. 앞으로도 몽글몽글은 고객님들의 기대를 넘는 서비스를 제공할 수 있도록 끊임없이 발전하고 성장해 나가겠습니다. 다시 한 번 저희 홈페이지 오픈을 축하해 주시고, 많은 관심과 응원 부탁드립니다! 감사합니다. 😊",
+          date: "2024. 11. 10",
+        },
+        {
+          title: "몽글몽글의 신규 서비스 출시 안내",
+          content:
+            "저희 몽글몽글에서 새로운 서비스를 출시했습니다. 애견 유치원 예약과 관련된 서비스가 새로 추가되었습니다.",
+          date: "2024. 11. 01",
+        },
+        {
+          title: "몽글몽글 할로윈파티를 진행합니다 🎃 (10월 30일 ~ 31일)",
+          content:
+            "안녕하세요! 이번 할로윈을 맞아 몽글몽글에서 특별한 강아지 할로윈 파티를 개최합니다! 🎃🐾 이번 행사는 사랑스러운 반려견들이 주인공이 되는 특별한 자리로, 친구 같은 강아지들과 함께 즐겁고 유쾌한 할로윈을 보낼 수 있도록 준비했습니다. 할로윈에 맞춰 강아지 친구들이 다양하고 개성 넘치는 코스튬을 입고 모여 어울리는 모습, 상상만 해도 너무 귀엽지 않나요? 모든 강아지들에게 어울리는 할로윈 테마의 이벤트와, 안전한 반려견 간식, 다양한 경품 이벤트도 준비되어 있어 특별한 추억을 쌓을 기회입니다. 또한, 반려인과 강아지가 함께 즐길 수 있는 포토존과 추억을 남길 수 있는 사진 촬영도 진행됩니다!📸🐶 반려견과 함께 즐겁고 잊지 못할 할로윈 추억을 만들고 싶다면, 이번 몽글몽글 강아지 할로윈 파티에 꼭 참석해 주세요! 많은 관심과 참여 부탁드리며, 여러분의 반려견 친구들이 함께 즐길 수 있는 자리가 되기를 기대하겠습니다. 감사합니다, 할로윈에서 만나요! 🎉",
+          date: "2024. 10. 30",
+        },
+        {
+          title: "몽글몽글 애견 유치원 오픈 행사",
+          content:
+            "몽글몽글 애견 유치원 오픈을 기념하여 특별한 행사를 진행하고 있습니다. 많은 참여 부탁드립니다.",
+          date: "2024. 09. 01",
+        },
+        {
+          title: "몽글몽글 2024년 여름방학 프로그램 안내",
+          content:
+            "여름방학 프로그램이 시작됩니다! 다양한 활동과 이벤트가 준비되어 있습니다.",
+          date: "2024. 06. 01",
+        },
+        {
+          title: "몽글몽글 고객 만족도 설문조사 진행 중",
+          content:
+            "몽글몽글 고객 여러분, 이번 설문조사에 참여하셔서 서비스 개선에 기여해주세요.",
+          date: "2024. 04. 01",
+        },
+        {
+          title: "몽글몽글 겨울방학 프로그램 안내",
+          content:
+            "2023 겨울방학 프로그램이 안내됩니다. 새해 맞이 특별 프로그램을 확인해보세요.",
+          date: "2023. 12. 01",
+        },
+      ];
+
+      let currentPage = 1;
+      const itemsPerPage = 6;
+      let totalPages = Math.ceil(notices.length / itemsPerPage);
+
+      function renderNotices(page) {
+        const start = (page - 1) * itemsPerPage;
+        const end = page * itemsPerPage;
+        const pageNotices = notices.slice(start, end);
+
+        const noticeList = document.getElementById("notice-list");
+        noticeList.innerHTML = "";
+        pageNotices.forEach((notice) => {
+          console.log(notice); // notice 객체가 잘 출력되는지 확인하기 위해 추가
+
+          noticeList.innerHTML += `
+        <a href="javascript:void(0)" class="cardset cardset-inner cardset-hover cardset-border"
+            onclick="openModal('${notice.title}', '${notice.content}', '${notice.date}')">
+            <div class="cardset-cont">
+                <h2 class="cardset-tit">${notice.title}</h2>
+                <p class="cardset-desc">${notice.content}</p>
+                <span class="cardset-txt">${notice.date}</span>
+            </div>
+        </a>
+        `;
+        });
+      }
+
+      function renderPagination() {
+        const pageNumbers = document.getElementById("page-numbers");
+        pageNumbers.innerHTML = "";
+
+        const maxPagesToShow = 5;
+        let startPage = currentPage > 2 ? currentPage - 2 : 1;
+        let endPage = startPage + maxPagesToShow - 1;
+        if (endPage > totalPages) {
+          endPage = totalPages;
+          startPage =
+            totalPages - maxPagesToShow + 1 > 0
+              ? totalPages - maxPagesToShow + 1
+              : 1;
+        }
+
+        for (let i = startPage; i <= endPage; i++) {
+          const pageItem = document.createElement("a");
+          pageItem.classList.add("pagiset-link");
+          if (i === currentPage) {
+            pageItem.classList.add("active-fill");
+          }
+          pageItem.textContent = i;
+          pageItem.style.cursor = "pointer";
+          pageItem.onclick = function () {
+            changePage(i);
+          };
+          pageNumbers.appendChild(pageItem);
+        }
+      }
+
+      function changePage(page) {
+        if (page < 1 || page > totalPages) return;
+        currentPage = page;
+        renderNotices(currentPage);
+        renderPagination();
+      }
+
+      // 초기화
+      renderNotices(currentPage);
+      renderPagination();
+
+      // 공지사항 모달 열기
+      function openModal(title, description, date) {
+        // 모달의 제목, 내용, 날짜 업데이트
+        document.getElementById("popupTitle").textContent = title;
+        document.getElementById("popupSubTitle").textContent = date;
+        document.getElementById("popupContents").textContent = description;
+
+        // 모달 보여주기
+        const popupWrapper = document.getElementById("popupWrapper");
+        popupWrapper.style.display = "flex";
+      }
+
+      // 모달 닫기
+      const closeModal = () => {
+        document.getElementById("popupWrapper").style.display = "none";
+      };
+    </script>
+    <script src="../resources/js/setting.js"></script>
+    <script src="../resources/js/plugin.js"></script>
+    <script src="../resources/js/template.js"></script>
+    <script src="../resources/js/common.js"></script>
+    <script src="../resources/js/script.js"></script>
+  </body>
+</html>
