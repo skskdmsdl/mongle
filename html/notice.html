@@ -325,8 +325,6 @@
         const noticeList = document.getElementById("notice-list");
         noticeList.innerHTML = "";
         pageNotices.forEach((notice) => {
-          console.log(notice); // notice 객체가 잘 출력되는지 확인하기 위해 추가
-
           noticeList.innerHTML += `
         <a href="javascript:void(0)" class="cardset cardset-inner cardset-hover cardset-border"
             onclick="openModal('${notice.title}', '${notice.content}', '${notice.date}')">
